@@ -65,14 +65,14 @@ export default function TextForm(props) {
             <div className="mb-3">
                 <textarea className="form-control" onChange={handleOnChange} value={text} id="myBox" rows="6"></textarea>
             </div>
-            <button className="btn btn-primary mx-1" onClick={handleUpClick}>Upper Case</button>
-            <button className="btn btn-primary mx-1" onClick={ConvertLower}>Lower Case</button>
-            <button className="btn btn-primary mx-1" onClick={handleClear}>Clear</button>
-            <button className="btn btn-primary mx-1" onClick={handleEmailExtract}>Extract Email</button>
-            <button className="btn btn-primary mx-1" onClick={handleCopytoClip}>Copy to Clipboard</button>
-            <button className="btn btn-primary mx-1" onClick={speak}>Speak</button>
-            <button className="btn btn-primary mx-1" onClick={removeExtraSpace}>Remove Extra Space</button>
-            <button className="btn btn-primary mx-1" onClick={changeTheme}>Change Theme</button>
+            <button className="btn btn-primary mx-1 my-1" onClick={handleUpClick}>Upper Case</button>
+            <button className="btn btn-primary mx-1 my-1" onClick={ConvertLower}>Lower Case</button>
+            <button className="btn btn-primary mx-1 my-1" onClick={handleClear}>Clear</button>
+            <button className="btn btn-primary mx-1 my-1" onClick={handleEmailExtract}>Extract Email</button>
+            <button className="btn btn-primary mx-1 my-1" onClick={handleCopytoClip}>Copy to Clipboard</button>
+            <button className="btn btn-primary mx-1 my-1" onClick={speak}>Speak</button>
+            <button className="btn btn-primary mx-1 my-1" onClick={removeExtraSpace}>Remove Extra Space</button>
+            <button className="btn btn-primary mx-1 my-1" onClick={changeTheme}>Change Theme</button>
         </div>
         <div className="container my-3">
             <h2>Your Text Summery</h2>
