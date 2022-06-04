@@ -6,11 +6,13 @@ export default function TextForm(props) {
         // console.log("upper Case was clicked" + text);
         let newText = text.toUpperCase();
         setText(newText);
+        props.ShowAlert("Text had been Convert Upper case.", "success");
     }
     const ConvertLower = () =>{
         // console.log("upper Case was clicked" + text);
         let newText = text.toLowerCase();
         setText(newText);
+        props.ShowAlert("Text had been Convert Lower.", "success");
     }
 
     const handleOnChange = (event) =>{
@@ -18,7 +20,11 @@ export default function TextForm(props) {
     }
     const handleClear = () =>{
         let cnf = window.confirm("Are you sure to Clear");
-        if(cnf){ setText(""); }
+        if(cnf){ 
+           setText(""); 
+           props.ShowAlert("Text had been cleared.", "warning");
+        }
+        
     }
     const handleEmailExtract = () =>{
         let regex = (/([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9._-]+)/gi);
@@ -31,7 +37,8 @@ export default function TextForm(props) {
     }
     const handleCopytoClip = () =>{
         navigator.clipboard.writeText(text);
-        setEmailText("Coppied : " + text);
+        // setEmailText("Coppied : " + text);
+        props.ShowAlert("Text Coppied : -" + text, "success");
     }
     const speak = () =>{
         let msg = new SpeechSynthesisUtterance();
@@ -42,10 +49,12 @@ export default function TextForm(props) {
         let color = '#';
         color += Math.random().toString(16).slice(2,8);
         document.querySelector('body').style.backgroundColor = color;
+        props.ShowAlert("Theme Changed | Color Code : " + color, "success");
     }
     const removeExtraSpace = () => {
         let newText = text.split(/[ ]+/);
         setText(newText.join(" ")); 
+        props.ShowAlert("Extra Space has been removed", "success");
     }
     const [text, setText] = useState("");
     const [textEmail, setEmailText] = useState(""); // Secound State for Email Exctraction
