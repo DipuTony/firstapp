@@ -16,7 +16,23 @@ export default function TextForm(props) {
     const handleOnChange = (event) =>{
         setText(event.target.value);
     }
+    const handleClear = () =>{
+        setText("");
+    }
+    const handleEmailExtract = () =>{
+        let regex = (/([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9._-]+)/gi);
+        let matches = regex.exec(text);
+        if(matches == null){
+            setEmailText("Email Not Found");
+        }else{
+            setEmailText("Found Email - " + matches[0]);
+        }
+    }
+    const handleCopytoClip = () =>{
+        setText("");
+    }
     const [text, setText] = useState("");
+    const [textEmail, setEmailText] = useState(""); // Secound State for Email Exctraction
     return (
         <>
         <div>
@@ -26,13 +42,16 @@ export default function TextForm(props) {
             </div>
             <button className="btn btn-primary mx-1" onClick={handleUpClick}>Upper Case</button>
             <button className="btn btn-primary mx-1" onClick={ConvertLower}>Lower Case</button>
+            <button className="btn btn-primary mx-1" onClick={handleClear}>Clear</button>
+            <button className="btn btn-primary mx-1" onClick={handleEmailExtract}>Extract Email</button>
+            <button className="btn btn-primary mx-1" onClick={handleCopytoClip}>Copy to Clipboard</button>
         </div>
         <div className="container my-3">
             <h2>Your Text Summery</h2>
-            <p>{text.split(" ").length} Words and {text.length} Characters</p>
-            <p>{0.008 * text.split(" ").length.toFixed(2)} Minutes to Raed This</p>
+            <p> <b>{text.split(" ").length}</b> Words and <b> {text.length}</b> Characters and <b>{0.008 * text.split(" ").length.toFixed(2)}</b> Minutes to Raed This</p>
             <h3>Preview</h3>
             <p>{text}</p>
+            <p>{textEmail}</p>
         </div>
         </>
     )
