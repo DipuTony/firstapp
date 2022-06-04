@@ -29,7 +29,8 @@ export default function TextForm(props) {
         }
     }
     const handleCopytoClip = () =>{
-        setText("");
+        navigator.clipboard.writeText(text);
+        setEmailText("Coppied : " + text);
     }
     const [text, setText] = useState("");
     const [textEmail, setEmailText] = useState(""); // Secound State for Email Exctraction
