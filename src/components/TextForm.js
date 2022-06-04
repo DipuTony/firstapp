@@ -43,6 +43,10 @@ export default function TextForm(props) {
         color += Math.random().toString(16).slice(2,8);
         document.querySelector('body').style.backgroundColor = color;
     }
+    const removeExtraSpace = () => {
+        let newText = text.split(/[ ]+/);
+        setText(newText.join(" ")); 
+    }
     const [text, setText] = useState("");
     const [textEmail, setEmailText] = useState(""); // Secound State for Email Exctraction
     return (
@@ -58,6 +62,7 @@ export default function TextForm(props) {
             <button className="btn btn-primary mx-1" onClick={handleEmailExtract}>Extract Email</button>
             <button className="btn btn-primary mx-1" onClick={handleCopytoClip}>Copy to Clipboard</button>
             <button className="btn btn-primary mx-1" onClick={speak}>Speak</button>
+            <button className="btn btn-primary mx-1" onClick={removeExtraSpace}>Remove Extra Space</button>
             <button className="btn btn-primary mx-1" onClick={changeTheme}>Change Theme</button>
         </div>
         <div className="container my-3">
