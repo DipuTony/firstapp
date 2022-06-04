@@ -8,8 +8,7 @@ import TextForm from './components/TextForm';
 import {
   BrowserRouter as Router,
   Routes,
-  Route,
-  Link
+  Route
 } from "react-router-dom";
 
 // let myname = "Dipu Singh";
@@ -44,7 +43,7 @@ function App() {
     <div className="container my-3">
         <Routes>
           <Route exact path="/about" element={<About/>} />
-          <Route exact path="/" element={<TextForm/>} />      
+          <Route exact path="/" element={<TextForm  heading="Enter the text to analyze." ShowAlert={ShowAlert}/>} />      
         </Routes>
     </div>
     </Router>
