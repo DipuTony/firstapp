@@ -32,6 +32,11 @@ export default function TextForm(props) {
         navigator.clipboard.writeText(text);
         setEmailText("Coppied : " + text);
     }
+    const speak = () =>{
+        let msg = new SpeechSynthesisUtterance();
+        msg.text = text;
+        window.speechSynthesis.speak(msg);
+    }
     const [text, setText] = useState("");
     const [textEmail, setEmailText] = useState(""); // Secound State for Email Exctraction
     return (
@@ -46,6 +51,8 @@ export default function TextForm(props) {
             <button className="btn btn-primary mx-1" onClick={handleClear}>Clear</button>
             <button className="btn btn-primary mx-1" onClick={handleEmailExtract}>Extract Email</button>
             <button className="btn btn-primary mx-1" onClick={handleCopytoClip}>Copy to Clipboard</button>
+            <button className="btn btn-primary mx-1" onClick={speak}>Speak</button>
+            <button className="btn btn-primary mx-1" onClick={speak}>Change Theme</button>
         </div>
         <div className="container my-3">
             <h2>Your Text Summery</h2>
