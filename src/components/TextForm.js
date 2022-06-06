@@ -27,12 +27,14 @@ export default function TextForm(props) {
         
     }
     const handleEmailExtract = () =>{
-        let regex = (/([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9._-]+)/gi);
-        let matches = regex.exec(text);
-        if(matches == null){
-            setEmailText("Email Not Found");
+        function extractEmails (text)    {
+            return text.match(/([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9._-]+)/gi);
+        }
+        if(extractEmails(text)){
+            // let text1 = text.style.ConvertLower();
+            setEmailText(extractEmails(text).join('\n | '));
         }else{
-            setEmailText("Found Email - " + matches[0]);
+            setEmailText("Mail Not Found!");
         }
     }
     const handleCopytoClip = () =>{
