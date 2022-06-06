@@ -46,6 +46,7 @@ export default function TextForm(props) {
         window.speechSynthesis.speak(msg);
     }
     const changeTheme = () => {
+        // console.log("this")
         let color = '#';
         color += Math.random().toString(16).slice(2,8);
         document.querySelector('body').style.backgroundColor = color;
@@ -72,7 +73,7 @@ export default function TextForm(props) {
             <button className="btn btn-primary mx-1 my-1" disabled={text.length===0} onClick={handleCopytoClip}>Copy to Clipboard</button>
             <button className="btn btn-primary mx-1 my-1" disabled={text.length===0} onClick={speak}>Speak</button>
             <button className="btn btn-primary mx-1 my-1" disabled={text.length===0} onClick={removeExtraSpace}>Remove Extra Space</button>
-            <button className="btn btn-primary mx-1 my-1" disabled={text.length===0} onClick={changeTheme}>Change Theme</button>
+            <button className="btn btn-primary mx-1 my-1" onClick={changeTheme}>Change Theme</button>
         </div>
         <div className="container my-3">
             <h2>Your Text Summery</h2>
@@ -84,3 +85,10 @@ export default function TextForm(props) {
         </>
     )
 }
+function dipu(){
+    let color = '#';
+    color += Math.random().toString(16).slice(2,8);
+    document.querySelector('body').style.backgroundColor = color;
+    // props.ShowAlert("Theme Changed | Color Code : " + color, "success");
+}
+export {dipu};

@@ -26,7 +26,13 @@ function App() {
     }, 2000);
   }
   
-  const toogelMode = () =>{ //create function for toogle dark/light mode
+const ChnageColor = (abc) =>{
+  // console.log(abc)
+  document.querySelector('body').style.color = abc;
+}
+
+  const toogelMode = (abc) =>{ //create function for toogle dark/light mode
+    // console.log(abc)
     if(mode=== 'light'){
       setMode('dark');
       ShowAlert("Light Mode Enabled", "success");
@@ -38,7 +44,7 @@ function App() {
   return (
    <>
    <Router>
-    <Navbar title="TextUtils" mode={mode} toogelMode={toogelMode}/>
+    <Navbar title="TextUtils" mode={mode} toogelMode={toogelMode} ChnageColor={ChnageColor}/>
     <Alert alert={alert}/>
     <div className="container my-3">
         <Routes>
