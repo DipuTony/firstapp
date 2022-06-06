@@ -63,7 +63,7 @@ export default function TextForm(props) {
     const [textEmail, setEmailText] = useState(""); // Secound State for Email Exctraction
     return (
         <>
-        <div>
+        <div align={'center'}>
             <h1>{props.heading}</h1>
             <div className="mb-3">
                 <textarea className="form-control" onChange={handleOnChange} value={text} id="myBox" rows="6"></textarea>
@@ -79,7 +79,7 @@ export default function TextForm(props) {
         </div>
         <div className="container my-3">
             <h2>Your Text Summery</h2>
-            <p> <b>{text.split(" ").filter((element)=>{ return element.length!=0}).length}</b> Words and <b> {text.length}</b> Characters and <b>{0.008 * text.split(" ").length.toFixed(2)}</b> Minutes to Raed This</p>
+            <p> <b>{text.split(/\s+/).filter((element)=>{ return element.length!=0}).length}</b> Words and <b> {text.length}</b> Characters and <b>{0.008 * text.split(" ").length.toFixed(2)}</b> Minutes to Raed This</p>
             <h3>Preview</h3>
             <p>{text}</p>
             <p>{textEmail}</p>
