@@ -19,6 +19,9 @@ export default function Navbar(props) {
           <Link className="nav-link" to="/about">About</Link>
         </li>
       </ul>
+      <div className="d-flex">
+        <div className="bg-primary  round mx-2" style={{height: '25px', width: '25px'}}></div>
+      </div>
       {/* <form className="d-flex" role="search">
         <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
         <button className="btn btn-primary" type="submit">Search</button>
